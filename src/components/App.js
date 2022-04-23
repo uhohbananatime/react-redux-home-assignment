@@ -31,7 +31,7 @@ const SortableList = SortableContainer(({ items }) => {
                 {headings.map((heading, i) => (
                     <th key={`th-${i}`} scope="col">{heading}</th>
                 ))}
-                <td className="drag">&nbsp;</td>
+                <td className="">&nbsp;</td>
             </thead>
             <tbody>
                 {items.map((value, index) => (
