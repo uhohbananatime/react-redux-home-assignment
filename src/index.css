@@ -11,3 +11,71 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
 }
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  position: relative;
+}
+
+/* table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+} */
+
+/* table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+} */
+
+/* table th,
+table td {
+  padding: .625em;
+  text-align: center;
+} */
+
+/* table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+} */
+
+@media screen and (max-width: 600px) {
+  
+  table thead {
+    /* clip: rect(0 0 0 0);
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 0; */
+  }
+  
+  table tr,
+  table td {
+    display: block;
+    width: 100%;
+  }
+  
+  table td::before {
+    content: attr(data-label);
+    float: left;
+  }
+
+  .td-id,
+  .td-worker-name {
+    width: 100%;
+  }
+}
+
+iframe {
+  position: relative; 
+    top: auto; 
+    left: auto;
+    width: auto;
+     height: auto;
+    border: none;
+    z-index: 0;
+}

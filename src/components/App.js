@@ -4,33 +4,38 @@ import { ITEMS } from './data';
 
 import './App.css';
 
+// Reusable array headings for mobile purposes
+const headings = ['Worker ID', 'Worker Name', 'Overtime', 'Manual Hours', 'Hours', 'Total Hours']
+
 const SortableItem = SortableElement(({ value }) => (
     <tr>
-        <td className="td-id">{value.id}</td>
-        <td className="td-worker-name">{value.workerName}</td>
-        <td>{value.ExtraHours}</td>
-        <td>{value.manualHours}</td>
-        <td>{value.Hours}</td>
-        <td>{value.totalHours}</td>
+        <td scope="row" data-label={headings[0]} className="td-id">{value.id}</td>
+        <td data-label={headings[1]} className="td-worker-name">{value.workerName}</td>
+        <td data-label={headings[2]}>{value.extraHours}</td>
+        <td data-label={headings[3]}>{value.manualHours}</td>
+        <td data-label={headings[4]}>{value.hours}</td>
+        <td data-label={headings[5]}>{value.totalHours}</td>
     </tr>
 ));
 
 const SortableList = SortableContainer(({ items }) => {
     return (
         <table>
-            <th>Worker ID</th>
-            <th>Worker Name</th>
-            <th>Overtime</th>
-            <th>Manual Hours</th>
-            <th>Hours</th>
-            <th>Total Hours</th>
-            {items.map((value, index) => (
-                <SortableItem
-                    key={`item-${value.workerName}`}
-                    index={index}
-                    value={value}
-                />
-            ))}
+            <thead>
+                {headings.map((heading, i) => (
+                    <th key={`th-${i}`} scope="col">{heading}</th>
+                ))}
+            </thead>
+            <tbody>
+                {items.map((value, index) => (
+                    <SortableItem
+                        key={`item-${value.workerName}`}
+                        index={index}
+                        value={value}
+                    />
+                ))}
+            </tbody>
+            
         </table>
     );
 });
