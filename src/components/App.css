@@ -59,12 +59,13 @@ table td {
   border: 2px solid #fff;
   text-transform: capitalize;
   padding: .5rem;
-  transition: .3s background-color ease-in-out;
+  transition: .4s all ease-in-out;
 }
 
 table tbody tr:hover td {
-  background-color: rgb(40, 160, 249, .4);
-  /* color: #fff; */
+  /* background-color: rgb(40, 160, 249, .4); */
+  color: #fff;
+  background-color: #269FF8;
 }
 
 table th {
@@ -72,7 +73,11 @@ table th {
   padding: .5rem;
 }
 
-table td.drag { width: 45px !important; text-align: center; }
+table td.drag { 
+  width: 45px !important; 
+  text-align: center; 
+  cursor: grab;
+}
 
 @media screen and (max-width: 600px) {
   table thead {
