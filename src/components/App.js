@@ -5,7 +5,7 @@ import { ITEMS } from './data';
 import './App.css';
 
 // Reusable array headings for mobile purposes
-const headings = ['Worker ID', 'Worker Name', 'Overtime', 'Manual Hours', 'Hours', 'Total Hours']
+const headings = ['Worker ID', 'Worker Name', 'Overtime', 'Manual Hours', 'Hours', 'Total Hours', 'Status']
 
 const SortableItem = SortableElement(({ value }) => (
     <tr>
@@ -15,6 +15,7 @@ const SortableItem = SortableElement(({ value }) => (
         <td data-label={headings[3]}>{value.manualHours}</td>
         <td data-label={headings[4]}>{value.hours}</td>
         <td data-label={headings[5]}>{value.totalHours}</td>
+        <td data-label={headings[6]} class={`text-${value.status ?? 'red'}`}>[icon]</td>
     </tr>
 ));
 

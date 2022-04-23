@@ -1,4 +1,4 @@
-.table-container {
+/* .table-container {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -31,4 +31,90 @@ td {
 .td-id {
   width: 160px;
   padding-right: 15px;
+} */
+
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
 }
+
+table td {
+  background: #f6f6f6;
+  /* font-family: "Rubik"; */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: right;
+  letter-spacing: 0.03rem;
+  border: 2px solid #fff;
+  text-transform: capitalize;
+  padding: .5rem;
+}
+
+/* table th,
+table td {
+  padding: .625em;
+  text-align: center;
+} */
+
+table th {
+  /* letter-spacing: .1rem; */
+  text-transform: uppercase;
+  padding: .5rem;
+}
+
+@media screen and (max-width: 600px) {
+  /* table {
+    border: 0;
+  } */
+
+  /* table caption {
+    font-size: 1.3em;
+  } */
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* Status colours */
+.text-green { color: green; }
+.text-red { color: red; }
+.text-orange { color: orange; }
