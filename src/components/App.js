@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { arrayMove, SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 import { ITEMS } from './data';
 // import 'bootstrap-icons'
-import { CircleFill, GripHorizontal } from 'react-bootstrap-icons';
+import { CircleFill, ThreeDotsVertical, Kanban } from 'react-bootstrap-icons';
 import './App.css';
 
 // Reusable array headings for mobile purposes
 const headings = ['Worker ID', 'Worker Name', 'Overtime', 'Manual Hours', 'Hours', 'Total Hours']
 
 const DragHandle = SortableHandle(() => (
-    <GripHorizontal size={24} />
+    <ThreeDotsVertical size={24} color="darkgray" />
   ));
 
 const SortableItem = SortableElement(({ value }) => (
@@ -20,7 +20,8 @@ const SortableItem = SortableElement(({ value }) => (
         <td data-label={headings[3]}>{value.manualHours}</td>
         <td data-label={headings[4]}>{value.hours}</td>
         <td data-label={headings[5]}>{value.totalHours}</td>
-        <td className="drag"><DragHandle /></td>
+        <td width="45"><Kanban size={24} color="darkgray" style={{transform: 'rotate(180deg)'}} /></td>
+        <td width="45" className="drag"><DragHandle /></td>
     </tr>
 ));
 
@@ -31,7 +32,8 @@ const SortableList = SortableContainer(({ items }) => {
                 {headings.map((heading, i) => (
                     <th key={`th-${i}`} scope="col">{heading}</th>
                 ))}
-                <td className="">&nbsp;</td>
+                <th width="45" className="">&nbsp;</th>
+                <th width="45" className="">&nbsp;</th>
             </thead>
             <tbody>
                 {items.map((value, index) => (

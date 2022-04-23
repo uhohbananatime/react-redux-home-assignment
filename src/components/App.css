@@ -33,6 +33,16 @@ td {
   padding-right: 15px;
 } */
 
+.table-container {
+  /* position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 table {
   border: 1px solid #ccc;
@@ -73,9 +83,11 @@ table th {
   padding: .5rem;
 }
 
-table td.drag { 
-  width: 45px !important; 
+table td:nth-last-child(n-1) { 
   text-align: center; 
+}
+
+table td.drag { 
   cursor: grab;
 }
 
@@ -116,4 +128,16 @@ table td.drag {
   }
 
   table td.drag { display: none; }
+}
+
+
+iframe {
+  /* position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: 2147483647; */
+    display: none;
 }
