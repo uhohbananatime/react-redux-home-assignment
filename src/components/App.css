@@ -1,53 +1,18 @@
-/* .table-container {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body {
+  padding: 0 1rem;
 }
-
-td {
-  background: #f6f6f6;
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: right;
-  letter-spacing: 0.03em;
-  text-transform: capitalize;
-  margin: 1px;
-  width: 224px;
-  height: 43px;
-}
-
-.td-worker-name {
-  width: 303px;
-}
-
-.td-id {
-  width: 160px;
-  padding-right: 15px;
-} */
 
 .table-container {
-  /* position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px; */
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border-bottom: 1px solid #ccc; */
 }
 
 table {
   border-collapse: collapse;
-  margin: 1rem;
+  max-width: 1280px;
+  margin: auto;
   padding: 0;
   width: 100%;
   /* table-layout: fixed; */ /* this ensures all cells are the exact same with */
@@ -59,7 +24,6 @@ table tr { width: 100%; }
 
 table td {
   background: #f6f6f6;
-  /* font-family: "Rubik"; */
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -71,18 +35,14 @@ table td {
   padding: .5rem 1rem;
 }
 
-
-
-
-
 @media screen and (min-width: 901px) {
-  
 
   table tr { 
     border-right: 0;
   }
   table td {
     border: 2px solid #fff;
+    transition: .4s background ease-in-out, .4s color ease-in-out
   }
   table td:first-of-type {
     width: 100px;
@@ -96,7 +56,7 @@ table td {
     background-color: #269FF8;
   }
   table tbody tr td svg {
-    transition: .4s all ease-in-out;
+    transition: .4s fill ease-in-out;
   }
   table tbody tr:hover td svg {
     fill: #fff;
@@ -104,12 +64,7 @@ table td {
   
   table th {
     padding: .5rem 0;
-    /* white-space: nowrap; */
   }
-
-  /* table td {
-    border: 2px solid #fff;
-  } */
 
   table td:nth-of-type(2) {
     text-align: left;
@@ -139,20 +94,10 @@ table td {
 
 @media screen and (max-width: 900px) {
   table thead {
-    /* border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px; */
     display: none;
   }
   
   table tr {
-    /* border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd; */
     border: 1px solid #ccc;
     display: block;
     margin-bottom: 1.5rem;
@@ -160,10 +105,9 @@ table td {
   
   table td {
     border-bottom: 2px solid #fff;
-    padding: 1rem;
+    padding: .5rem 1rem;
     display: block;
     text-align: right;
-    /* border: 1px solid #ccc; */
   }
   
   table td::before {
@@ -186,12 +130,5 @@ table td {
 
 
 iframe {
-  /* position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    border: none;
-    z-index: 2147483647; */
-    display: none;
+  display: none;
 }

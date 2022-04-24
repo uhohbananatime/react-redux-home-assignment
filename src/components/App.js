@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+
+
 import { arrayMove, SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 import { ITEMS } from './data';
-// import 'bootstrap-icons'
-import { CircleFill, ThreeDotsVertical, Kanban } from 'react-bootstrap-icons';
 import './App.css';
+
+// Bootstrap icons 
+import { CircleFill, ThreeDotsVertical, Kanban } from 'react-bootstrap-icons';
 
 // Reusable array headings for mobile purposes
 const headings = ['Worker ID', 'Worker Name', 'Overtime', 'Manual Hours', 'Hours', 'Total Hours']
 
+// Use this to drag/reorder rows
 const DragHandle = SortableHandle(() => (
     <ThreeDotsVertical size={24} color="darkgray" />
-  ));
+));
 
+// Items to display, including stats icon and drag handle
 const SortableItem = SortableElement(({ value }) => (
     <tr>
         <td scope="row" data-label={headings[0]} className="td-id">{value.id}</td>
@@ -32,7 +38,7 @@ const SortableList = SortableContainer(({ items }) => {
                 {headings.map((heading, i) => (
                     <th key={`th-${i}`} scope="col">{heading}</th>
                 ))}
-                <th className="" colspan="2">Actions</th>
+                <th className="" colSpan="2">Actions</th>
             </thead>
             <tbody>
                 {items.map((value, index) => (
@@ -49,6 +55,8 @@ const SortableList = SortableContainer(({ items }) => {
 });
 
 function SortableComponent() {
+    const birds = useSelector(state => state.birds);
+
     const [data, setData] = useState(ITEMS);
 
     let onSortEnd = ({ oldIndex, newIndex }) => {
@@ -56,8 +64,21 @@ function SortableComponent() {
     };
 
     return (
+        // Table
         <div className="table-container">
             <SortableList items={data} onSortEnd={onSortEnd} useDragHandle={true} />
+
+            <hr />
+            <ul>
+                {birds.map(bird => (
+                    <li key={bird.name}>
+                        <h3>{bird.name}</h3>
+                        <div>
+                        Views: {bird.views}
+                        </div>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 }
