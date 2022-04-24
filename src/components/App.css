@@ -42,15 +42,15 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* border-bottom: 1px solid #ccc; */
 }
 
 table {
-  border: 1px solid #ccc;
   border-collapse: collapse;
-  margin: 0;
+  margin: 1rem;
   padding: 0;
   width: 100%;
-  table-layout: fixed;
+  /* table-layout: fixed; */ /* this ensures all cells are the exact same with */
 }
 
 table thead,
@@ -64,67 +64,121 @@ table td {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  text-align: right;
+  text-align: center;
   letter-spacing: 0.03rem;
-  border: 2px solid #fff;
+  
   text-transform: capitalize;
-  padding: .5rem;
-  transition: .4s all ease-in-out;
+  padding: .5rem 1rem;
 }
 
-table tbody tr:hover td {
-  /* background-color: rgb(40, 160, 249, .4); */
-  color: #fff;
-  background-color: #269FF8;
+
+
+
+
+@media screen and (min-width: 901px) {
+  
+
+  table tr { 
+    border-right: 0;
+  }
+  table td {
+    border: 2px solid #fff;
+  }
+  table td:first-of-type {
+    width: 100px;
+  }
+  table td:nth-of-type(n+3) {
+    width: 60px;
+  }
+  
+  table tbody tr:hover td {
+    color: #fff;
+    background-color: #269FF8;
+  }
+  table tbody tr td svg {
+    transition: .4s all ease-in-out;
+  }
+  table tbody tr:hover td svg {
+    fill: #fff;
+  }
+  
+  table th {
+    padding: .5rem 0;
+    /* white-space: nowrap; */
+  }
+
+  /* table td {
+    border: 2px solid #fff;
+  } */
+
+  table td:nth-of-type(2) {
+    text-align: left;
+  }
+  
+  table th:nth-last-of-type(-n+2),
+  table td:nth-last-of-type(-n+2) { 
+    width: 30px;
+  }
+  
+  table td.drag { 
+    cursor: grab;
+  }
 }
 
-table th {
-  text-transform: uppercase;
-  padding: .5rem;
+@media screen and (min-width: 1080px) {
+  table td {
+    transition: .4s all ease-in-out;
+  }
+  table td:first-of-type {
+    width: 130px;
+  }
+  table td:not(:nth-last-of-type(-n+2)):nth-of-type(n+3) {
+    width: 90px;
+  }
 }
 
-table td:nth-last-child(n-1) { 
-  text-align: center; 
-}
-
-table td.drag { 
-  cursor: grab;
-}
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   table thead {
-    border: none;
+    /* border: none;
     clip: rect(0 0 0 0);
     height: 1px;
     margin: -1px;
     overflow: hidden;
     padding: 0;
     position: absolute;
-    width: 1px;
+    width: 1px; */
+    display: none;
   }
   
   table tr {
-    border-bottom: 3px solid #ddd;
+    /* border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; */
+    border: 1px solid #ccc;
     display: block;
-    margin-bottom: .625em;
-  }
+    margin-bottom: 1.5rem;
+  } 
   
   table td {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #fff;
+    padding: 1rem;
     display: block;
-    font-size: .8em;
     text-align: right;
+    /* border: 1px solid #ccc; */
   }
   
   table td::before {
     content: attr(data-label);
     float: left;
     font-weight: bold;
-    text-transform: uppercase;
   }
   
-  table td:last-child {
+  table td:nth-last-of-type(-n+2) {
     border-bottom: 0;
+  }
+
+  table th:nth-last-of-type(-n+2),
+  table td:nth-last-of-type(-n+2) { 
+    text-align: right;
   }
 
   table td.drag { display: none; }

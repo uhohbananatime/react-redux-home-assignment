@@ -20,8 +20,8 @@ const SortableItem = SortableElement(({ value }) => (
         <td data-label={headings[3]}>{value.manualHours}</td>
         <td data-label={headings[4]}>{value.hours}</td>
         <td data-label={headings[5]}>{value.totalHours}</td>
-        <td width="45"><Kanban size={24} color="darkgray" style={{transform: 'rotate(180deg)'}} /></td>
-        <td width="45" className="drag"><DragHandle /></td>
+        <td data-label="View employee related statistics"><a href=""><Kanban size={24} color="darkgray" style={{transform: 'rotate(180deg)'}} /></a></td>
+        <td className="drag"><DragHandle /></td>
     </tr>
 ));
 
@@ -32,8 +32,7 @@ const SortableList = SortableContainer(({ items }) => {
                 {headings.map((heading, i) => (
                     <th key={`th-${i}`} scope="col">{heading}</th>
                 ))}
-                <th width="45" className="">&nbsp;</th>
-                <th width="45" className="">&nbsp;</th>
+                <th className="" colspan="2">Actions</th>
             </thead>
             <tbody>
                 {items.map((value, index) => (
