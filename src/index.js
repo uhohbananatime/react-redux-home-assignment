@@ -1,30 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import SortableComponent from './components/App';
-
-// import store from './components/Store'
-import { Provider } from 'react-redux'
-
-import { createStore } from 'redux';
-import './index.css';
-
-const store = createStore(() => ({
-  birds: [
-    {
-      name: 'robin',
-      views: 1
-    }
-  ]
-}));
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./components/App";
+import { store } from "./store";
+import { Provider } from "react-redux";
 
 ReactDOM.render(
-    <React.StrictMode>  
-        <Provider store={store}>
-            <SortableComponent />
-        </Provider>
-    </React.StrictMode>,
-    document.getElementById("root")
+  <Provider store={store}>
+    {console.log('store',store)}
+    <App />
+  </Provider>,
+  document.getElementById("root")
 );
+
+
+// ReactDOM.render(
+//     <React.StrictMode>  
+//         <Provider store={store}>
+//             <SortableComponent />
+//         </Provider>
+//     </React.StrictMode>,
+//     document.getElementById("root")
+// );
 
 
 // If you want your app to work offline and load faster, you can change
