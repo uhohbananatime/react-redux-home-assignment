@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 
 ReactDOM.render(
   <Provider store={store}>
-    {console.log('store',store)}
+    {/* {console.log('store',store)} */}
     <App />
   </Provider>,
   document.getElementById("root")
